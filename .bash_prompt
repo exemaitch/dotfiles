@@ -1,0 +1,19 @@
+# when in a source directory that is a git repo, display git status
+source ~/.git-prompt.sh
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export set GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWCOLORHINTS=1
+
+
+#if [ -z $CONDA_DEFAULT_ENV ]
+#then 
+##	PS1="$CONDA_DEFAULT_ENV"
+#fi 
+	
+PS1='($CONDA_DEFAULT_ENV) \u@\h \W$(__git_ps1 " (%s)")\$ '
+export PS1
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2;
