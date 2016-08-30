@@ -6,9 +6,6 @@ channels:
 
 show_channel_urls: True
 
-# Don't change the bash prompt when activating the conda env
-changeps1: False
-
 # Add pip when creating a new conda env
 add_pip_as_python_dependency: True
 

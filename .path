@@ -1,0 +1,14 @@
+PATH_GOODIES=''
+
+if [ -d $HOME/bin ]
+then
+    PATH_GOODIES+=~/bin:
+fi
+
+if [ -d $HOME/anaconda ]
+then
+    PATH_GOODIES+=~/anaconda/bin
+fi
+
+
+export PATH=$PATH_GOODIES:$PATH
