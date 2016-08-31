@@ -7,8 +7,11 @@ fi
 
 if [ -d $HOME/anaconda ]
 then
-    PATH_GOODIES+=~/anaconda/bin
+    PATH_GOODIES+=~/anaconda/bin:
 fi
+
+
+PATH_GOODIES+=/usr/local/bin
 
 
 export PATH=$PATH_GOODIES:$PATH
