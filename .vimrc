@@ -67,13 +67,18 @@ endif
 :nnoremap ,st :SyntasticToggleMode<CR>
 
 " Shortcut for CtrlP search
-:nnoremap <C-p> :CtrlP<Space>
+:nnoremap <C-o> :CtrlP<Space>
 
 "Show a list of snippets
 :nnoremap <C-i> <Plug>snipMateShow
 
 " Delete all trailing white space
 :nnoremap ,w  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Generate tags
+:nnoremap ,tp :!ctags -R --languages=python -f $CONDA_ENV_PATH/tags $CONDA_ENV_PATH/lib/python*/site-packages/*<CR>
+
+
 
 
 " End Shortcuts
@@ -105,3 +110,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:ctrlp_working_path_mode = '0'
+"let &tags=$CONDA_ENV_PATH . "/tags"
+"set omnifunc=syntaxcomplete#Complete

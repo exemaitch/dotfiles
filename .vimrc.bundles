@@ -14,6 +14,7 @@ Plug 'honza/vim-snippets'
 Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 filetype plugin indent on
