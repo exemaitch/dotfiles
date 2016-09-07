@@ -1,7 +1,7 @@
 export ARBZRUSER=xho
 export ARSVNUSER=xho
 
-if [[ "$PERL5LIB" == ?(*:)"/opt/ardome/lib/perl"?(:*) ]];
+if [[ -d /opt/ardome/lib/perl  ]];
 then
     export IS_VIZONE=1                                                                                                                                                                                                                                                   
 fi
