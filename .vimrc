@@ -79,7 +79,7 @@ endfunction
 
 ":nnoremap <C-o> :call SearchRoot()<CR> 
 :nnoremap <C-p> :call SearchRoot()<CR> 
-:nnoremap <C-o> CtrlPTag<CR> 
+:nnoremap <C-o> :CtrlPTag<CR> 
 
 :nnoremap ,m :map<CR>
 
