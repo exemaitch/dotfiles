@@ -67,7 +67,19 @@ endif
 :nnoremap ,st :SyntasticToggleMode<CR>
 
 " Shortcut for CtrlP search
-:nnoremap <C-o> :CtrlPTag<CR>
+
+function! SearchRoot()
+    if $IS_VIZONE == '1'
+        :cd /opt/ardome/lib/perl 
+    else
+        :cd  $HOME . '/source'
+    endif
+    :CtrlP
+endfunction
+
+":nnoremap <C-o> :call SearchRoot()<CR> 
+:nnoremap <C-p> :call SearchRoot()<CR> 
+:nnoremap <C-o> CtrlPTag<CR> 
 
 :nnoremap ,m :map<CR>
 
@@ -78,11 +90,8 @@ endif
 
 " Generate tags
 :nnoremap ,tp :!ctags -R --languages=python -f $CONDA_ENV_PATH/tags $CONDA_ENV_PATH/lib/python*/site-packages/*<CR>
-:nnoremap ,tl :!ctags -R --links=yes -R -f /opt/ardome/lib/perl/tags /opt/ardome/lib/perl/<CR>
 :nnoremap ,tw <CR><C-v>e<C-]>
 :nnoremap ,tt :TagbarToggle<CR>
-
-
 
 
 " End Shortcuts
@@ -116,7 +125,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = '0'
-let &tags="/opt/ardome/lib/perl/tags"
-"set omnifunc=syntaxcomplete#Complete
-"
-source ~/.vimrc.v1
+
+
+if $IS_VIZONE == '1'
+    :nnoremap ,tl :!ctags -R --links=yes -R -f /opt/ardome/lib/perl/tags /opt/ardome/lib/perl/<CR>
+    let &tags="/opt/ardome/lib/perl/tags"
+    source ~/.vimrc.v1
+else
+    let &tags=$HOME . '/source'
+endif
