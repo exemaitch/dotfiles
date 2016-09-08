@@ -125,6 +125,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = '0'
+let g:ctrlp_map = '<C-\>'
 
 
 if $IS_VIZONE == '1'
