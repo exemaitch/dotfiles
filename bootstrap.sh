@@ -12,6 +12,7 @@ function doIt() {
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
 		--exclude "*.swp" \
+		--exclude "install_vim_plugins.sh" \
 		-avh --no-perms . ~;
 
 	source ~/.bash_profile;

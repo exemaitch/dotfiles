@@ -1,5 +1,5 @@
 " vim should act like vim not vi
-set nocompatible 
+set nocompatible
 
 " display incomplete commands
 set showcmd
@@ -58,7 +58,7 @@ endif
 " List current buffers and open a buffer in a vertical split pane
 :nnoremap ,vb :buffers<CR>:vert sb
 
-" Open file in new vertical split 
+" Open file in new vertical split
 :nnoremap ,vs :vs<Space>
 
 " Syntastic Check
@@ -67,18 +67,31 @@ endif
 :nnoremap ,st :SyntasticToggleMode<CR>
 
 " Shortcut for CtrlP search
-:nnoremap <C-o> :CtrlP<Space>
+
+function! SearchRoot()
+    if $IS_VIZONE == '1'
+        :cd /opt/ardome/lib/perl 
+    else
+        :cd  $HOME . '/source'
+    endif
+    :CtrlP
+endfunction
+
+":nnoremap <C-o> :call SearchRoot()<CR> 
+:nnoremap <C-p> :call SearchRoot()<CR> 
+:nnoremap <C-o> :CtrlPTag<CR> 
+
+:nnoremap ,m :map<CR>
 
 "Show a list of snippets
 :nnoremap <C-i> <Plug>snipMateShow
 
 " Delete all trailing white space
-:nnoremap ,w  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Generate tags
 :nnoremap ,tp :!ctags -R --languages=python -f $CONDA_ENV_PATH/tags $CONDA_ENV_PATH/lib/python*/site-packages/*<CR>
-
-
+:nnoremap ,tw <CR><C-v>e<C-]>
+:nnoremap ,tt :TagbarToggle<CR>
 
 
 " End Shortcuts
@@ -86,7 +99,7 @@ endif
  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
  if executable('ag')
    " Use Ag over Grep
-   set grepprg=ag\ --nogroup\ --nocolor
+   set grepprg=ag\ --nogroup\ --nocolor\ --follow
 
    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
    let g:ctrlp_user_command = 'ag -f -Q -l --nocolor --hidden -g "" %s'
@@ -112,5 +125,13 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = '0'
-"let &tags=$CONDA_ENV_PATH . "/tags"
-"set omnifunc=syntaxcomplete#Complete
+let g:ctrlp_map = '<C-\>'
+
+
+if $IS_VIZONE == '1'
+    :nnoremap ,tl :!ctags -R --links=yes -R -f /opt/ardome/lib/perl/tags /opt/ardome/lib/perl/<CR>
+    let &tags="/opt/ardome/lib/perl/tags"
+    source ~/.vimrc.v1
+else
+    let &tags=$HOME . '/source'
+endif

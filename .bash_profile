@@ -9,3 +9,8 @@ unset file
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+            . ~/.bashrc
+fi
