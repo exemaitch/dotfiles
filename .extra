@@ -2,7 +2,7 @@
 export ARBZRUSER=xho
 export ARSVNUSER=xho
 
-source ~/anaconda/envs/v1/bin/activate v1
+source ~/venvs/p3/bin/activate ~/venvs/p3 
 
 alias nb='cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
 alias nb3='source activate stats;cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
