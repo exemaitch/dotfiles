@@ -133,5 +133,6 @@ if $IS_VIZONE == '1'
     let &tags="/opt/ardome/lib/perl/tags"
     source ~/.vimrc.v1
 else
-    let &tags=$HOME . '/source'
+    :nnoremap ,tl :!ctags -R --links=yes -R -f $HOME/source/tags $HOME/source<CR>
+    let &tags=$HOME . '/source/tags'
 endif
