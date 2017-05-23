@@ -44,6 +44,7 @@ endif
 
 " List buffers and switch by number
 :nnoremap ,b :buffers<CR>:buffer<Space>
+:nnoremap ,q :bdelete<CR>
 
 " Source the current file
 :nnoremap ,; :source %<CR>
