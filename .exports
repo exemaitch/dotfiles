@@ -3,5 +3,7 @@ export ARSVNUSER=xho
 
 if [[ -d /opt/ardome/lib/perl  ]];
 then
-    export IS_VIZONE=1                                                                                                                                                                                                                                                   
+    export IS_VIZONE=1
 fi
+
+set -o vi
