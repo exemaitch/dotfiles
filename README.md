@@ -15,3 +15,9 @@ must use same version of python that vim is compiled with.
 
 For local gitconfig, add .gitconfig.local to your home directory.
 Put stuff like git secrets in there (for aws).
+
+```
+[credential]    
+    helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+    UseHttpPath = true
+```
