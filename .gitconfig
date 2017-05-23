@@ -6,6 +6,8 @@
     default = current
 
 [fetch]
-      prune = true
+    prune = true
 [rebase]
-      autosquash = true
+    autosquash = true
+[include]
+    path = .gitconfig.local
