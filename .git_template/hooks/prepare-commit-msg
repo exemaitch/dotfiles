@@ -5,4 +5,4 @@ local_hook="$HOME"/.git_template.local/hooks/prepare-commit-msg
 if [ -f "$local_hook" ]; then
   . "$local_hook"
 fi
-git secrets --prepare_commit_msg_hook -- "$@"
+/usr/local/bin/git-secrets --prepare_commit_msg_hook -- "$@"

@@ -5,4 +5,4 @@ local_hook="$HOME"/.git_template.local/hooks/pre-commit
 if [ -f "$local_hook" ]; then
   . "$local_hook"
 fi
-git secrets --pre_commit_hook -- "$@"
+/usr/local/bin/git-secrets --pre_commit_hook -- "$@"
