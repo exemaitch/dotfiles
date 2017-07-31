@@ -94,6 +94,11 @@ endfunction
 :nnoremap ,tw <CR><C-v>e<C-]>
 :nnoremap ,tt :TagbarToggle<CR>
 
+" QuickFix
+:nnoremap ,cc :ccl<CR>
+:nnoremap ,co :cope<CR>
+
+:nnoremap ,/ :Ag<SPACE>
 
 " End Shortcuts
 
@@ -114,6 +119,11 @@ endfunction
        endif
   endif
 
+
+nnoremap ,g :grep! 
+
+" Open up QuickFix for grep  
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Syntastic Settings
 set statusline+=%#warningmsg#
