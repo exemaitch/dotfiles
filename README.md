@@ -21,3 +21,4 @@ Put stuff like git secrets in there (for aws).
     helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
     UseHttpPath = true
 ```
+Remember to install: https://github.com/magicmonty/bash-git-prompt
