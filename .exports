@@ -1,4 +1,4 @@
 export SOURCE_HOME=$HOME/source
-export VETTERY_HOME=$HOME/vettery
+export VETTERY_HOME=$HOME/vettery/vettery
 
 set -o vi

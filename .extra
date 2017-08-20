@@ -3,6 +3,9 @@ source ~/venvs/p3/bin/activate ~/venvs/p3
 alias nb="cd ~/source/exemaitch/notebooks;jupyter notebook"
 alias nb3='source activate stats;cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
 
+# Git Aliases
+alias gs="git status"
+
 function reb(){
 	if [ -z "$1" ]; then
 		echo "You must define a branch to rebase"
@@ -46,7 +49,7 @@ function ags(){
     if [ -z "$1" ]; then
         echo "You must specify a search term"
     else
-        agg $1 $SOURCE_HOME
+        agg $1 $SOURCE
     fi
 }
         
