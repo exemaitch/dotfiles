@@ -7,16 +7,18 @@
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
-Plug 'nvie/vim-flake8'
+"Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'honza/vim-snippets'
-Plug 'garbas/vim-snipmate'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'SirVer/ultisnips'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/ListToggle'
 call plug#end()
 
 filetype plugin indent on

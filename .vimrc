@@ -34,17 +34,24 @@ set expandtab
 " Make it obvious where 80 characters is
 set textwidth=80
 
+" See the directory in status line
+set statusline+=%F
+set laststatus=2
+
+
+
 " Load vim plugins
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+let mapleader = ','
 
 "" Begin Shortcuts
 
 " List buffers and switch by number
-:nnoremap ,b :buffers<CR>:buffer<Space>
-:nnoremap ,q :bdelete<CR>
+:nnoremap ,bb :buffers<CR>:buffer<Space>
+:nnoremap ,bd :bdelete<CR>
 
 " Source the current file
 :nnoremap ,; :source %<CR>
@@ -98,7 +105,7 @@ endfunction
 :nnoremap ,cc :ccl<CR>
 :nnoremap ,co :cope<CR>
 
-:nnoremap ,/ :Ag<SPACE>
+:nnoremap ,f :Ag<SPACE>
 
 " End Shortcuts
 
@@ -147,3 +154,22 @@ else
     :nnoremap ,tl :!ctags -R --links=yes -R -f $HOME/source/tags $HOME/source<CR>
     let &tags=$HOME . '/source/tags'
 endif
+
+"Ultisnips 
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
+
+
+" valloric/ListToggle
+let g:lt_location_list_toggle_map = '<leader>ll'
+let g:lt_quickfix_list_toggle_map = '<leader>lq'
+
+
+" Nerdtree
+nnoremap <Leader>nt :NERDTreeToggle<Enter>
+
+" map c-' to esc
+inoremap <C-SPACE> <ESC>
