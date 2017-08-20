@@ -1,7 +1,3 @@
-
-export ARBZRUSER=xho
-export ARSVNUSER=xho
-
 source ~/venvs/p3/bin/activate ~/venvs/p3 
 
 alias nb="cd ~/source/exemaitch/notebooks;jupyter notebook"
@@ -30,3 +26,27 @@ function reb(){
 
 } 
 
+function agg(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        ag --hidden -f -Q -l -g $1 $2
+    fi
+}
+
+function agv(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        agg $1 $VETTERY_HOME
+    fi
+}
+
+function ags(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        agg $1 $SOURCE_HOME
+    fi
+}
+        
