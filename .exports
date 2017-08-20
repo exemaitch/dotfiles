@@ -1,9 +1,4 @@
-export ARBZRUSER=xho
-export ARSVNUSER=xho
-
-if [[ -d /opt/ardome/lib/perl  ]];
-then
-    export IS_VIZONE=1
-fi
+export SOURCE_HOME=$HOME/source
+export VETTERY_HOME=$HOME/vettery
 
 set -o vi

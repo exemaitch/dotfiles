@@ -86,7 +86,7 @@ function! SearchRoot()
 endfunction
 
 ":nnoremap <C-o> :call SearchRoot()<CR> 
-:nnoremap <C-p> :call SearchRoot()<CR> 
+:nnoremap <C-p> :CtrlP<CR> 
 :nnoremap <C-o> :CtrlPTag<CR> 
 
 :nnoremap ,m :map<CR>
@@ -127,6 +127,8 @@ endfunction
   endif
 
 
+let g:ctrlp_match_window = 'results:100'
+
 nnoremap ,g :grep! 
 
 " Open up QuickFix for grep  
@@ -144,6 +146,11 @@ let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_map = '<C-\>'
+
+nnoremap ,cdc :cd %:p:h<CR>:pwd<CR>
+nnoremap ,cdh :cd $HOME<CR>:pwd<CR>
+nnoremap ,cds :cd $SOURCE_HOME<CR>:pwd<CR>
+nnoremap ,cdv :cd $VETTERY_HOME<CR>:pwd<CR>
 
 
 if $IS_VIZONE == '1'

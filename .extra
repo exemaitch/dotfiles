@@ -4,7 +4,7 @@ export ARSVNUSER=xho
 
 source ~/venvs/p3/bin/activate ~/venvs/p3 
 
-alias nb='cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
+alias nb="cd ~/source/exemaitch/notebooks;jupyter notebook"
 alias nb3='source activate stats;cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
 
 function reb(){
