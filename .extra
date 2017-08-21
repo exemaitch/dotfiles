@@ -4,7 +4,22 @@ alias nb="cd ~/source/exemaitch/notebooks;jupyter notebook"
 alias nb3='source activate stats;cd /Users/xuanmai/source/exemaitch/notebooks;jupyter notebook'
 
 # Git Aliases
-alias gs="git status"
+alias gst='git status'
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff | mate'
+alias gau='git add --update'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcot='git checkout -t'
+alias gcotb='git checkout --track -b'
+alias glog='git log'
+alias glogp='git log --pretty=format:"%h %s" --graph'
+
 
 function reb(){
 	if [ -z "$1" ]; then
@@ -37,6 +52,22 @@ function agg(){
     fi
 }
 
+function agc(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        ag --hidden -f -Q --numbers $1 $2 
+    fi
+}
+
+function agcv(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        agc $1 $VETTERY_HOME
+    fi
+}
+
 function agv(){
     if [ -z "$1" ]; then
         echo "You must specify a search term"
@@ -49,7 +80,26 @@ function ags(){
     if [ -z "$1" ]; then
         echo "You must specify a search term"
     else
-        agg $1 $SOURCE
+        agg $1 $SOURCE_HOME
+    fi
+}
+
+function agcs(){
+    if [ -z "$1" ]; then
+        echo "You must specify a search term"
+    else
+        agc $1 $SOURCE_HOME
     fi
 }
         
+function gmm(){
+    branch=`git rev-parse --abbrev-ref HEAD` 
+    if [ "$branch" == "master" ]; then 
+        echo "You can't do this on master"
+    else
+        echo "Fetching master"
+        git fetch origin master
+        echo "Merging master over this branch"
+        git merge master
+    fi
+}
