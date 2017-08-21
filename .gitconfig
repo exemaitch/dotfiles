@@ -3,7 +3,7 @@
 [core]
     editor = vim
 [push]
-    default = current
+    default = simple 
 
 [fetch]
     prune = true
