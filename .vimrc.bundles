@@ -19,6 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/ListToggle'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 filetype plugin indent on

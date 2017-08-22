@@ -47,6 +47,12 @@ endif
 
 let mapleader = ','
 
+" Indent Guide
+let g:indent_guides_enable_on_vim_startup = 0
+:nnoremap ,ig :IndentGuidesToggle 
+set listchars=tab:\|\
+set list
+
 "" Begin Shortcuts
 
 " List buffers and switch by number
