@@ -25,12 +25,6 @@ set splitright
 " Horizontal Split opens in the bottom
 set splitbelow
 
-" Softtabs, 2 spaces
-set tabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
 " Make it obvious where 80 characters is
 set textwidth=80
 
@@ -48,8 +42,8 @@ endif
 let mapleader = ','
 
 " Indent Guide
-let g:indent_guides_enable_on_vim_startup = 0
-:nnoremap ,ig :IndentGuidesToggle 
+"let g:indent_guides_enable_on_vim_startup = 0
+":nnoremap ,ig :IndentGuidesToggle 
 set listchars=tab:\|\ 
 set list
 
@@ -174,8 +168,10 @@ let g:UltiSnipsExpandTrigger="<c-h>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-
-
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+"
 
 " valloric/ListToggle
 let g:lt_location_list_toggle_map = '<leader>ll'
@@ -184,6 +180,9 @@ let g:lt_quickfix_list_toggle_map = '<leader>lq'
 
 " Nerdtree
 nnoremap <Leader>nt :NERDTreeToggle<Enter>
+let NERDTreeShowHidden=1
 
 " map c-' to esc
 inoremap <C-SPACE> <ESC>
+
+let g:EditorConfig_core_mode = 'external_command'
