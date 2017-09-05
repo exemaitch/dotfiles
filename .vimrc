@@ -52,6 +52,8 @@ set list
 " List buffers and switch by number
 :nnoremap ,bb :buffers<CR>:buffer<Space>
 :nnoremap ,bd :bdelete<CR>
+" List current buffers and open a buffer in a vertical split pane
+:nnoremap ,bv :buffers<CR>:vert sb
 
 " Source the current file
 :nnoremap ,; :source %<CR>
@@ -63,8 +65,6 @@ set list
 :nnoremap <C-h> <C-w>h
 :nnoremap <C-h> <C-w>h
 
-" List current buffers and open a buffer in a vertical split pane
-:nnoremap ,vb :buffers<CR>:vert sb
 
 " Open file in new vertical split
 :nnoremap ,vs :vs<Space>
