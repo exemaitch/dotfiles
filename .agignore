@@ -5,7 +5,10 @@
 *.swp
 node_modules
 *.min.js
+*.bundle.js
 lib
 Vendor
 vendor
 bower_components
+webroot
+*.har

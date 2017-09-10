@@ -54,6 +54,12 @@ set list
 :nnoremap ,bd :bdelete<CR>
 " List current buffers and open a buffer in a vertical split pane
 :nnoremap ,bv :buffers<CR>:vert sb
+:nnoremap ,be :BufExplorer<CR>
+:nnoremap ,bt :ToggleBufExplorer<CR>
+:nnoremap ,bh :BufExplorerHorizontalSplit<CR>
+:nnoremap ,bs :BufExplorerVerticalSplit<CR>
+:nnoremap ,bo <C-w>o
+let g:bufExplorerDisableDefaultKeyMapping=1  
 
 " Source the current file
 :nnoremap ,; :source %<CR>
@@ -62,7 +68,6 @@ set list
 :nnoremap <C-j> <C-w>j
 :nnoremap <C-k> <C-w>k
 :nnoremap <C-l> <C-w>l
-:nnoremap <C-h> <C-w>h
 :nnoremap <C-h> <C-w>h
 
 
@@ -76,18 +81,12 @@ set list
 
 " Shortcut for CtrlP search
 
-function! SearchRoot()
-    if $IS_VIZONE == '1'
-        :cd /opt/ardome/lib/perl 
-    else
-        :cd  $HOME . '/source'
-    endif
-    :CtrlP
-endfunction
-
-":nnoremap <C-o> :call SearchRoot()<CR> 
 :nnoremap <C-p> :CtrlP<CR> 
 :nnoremap <C-o> :CtrlPTag<CR> 
+:nnoremap <C-b> :CtrlPBuffer<CR> 
+:nnoremap <C-m> :CtrlPMRUFiles<CR> 
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_reuse_window = 'netrw'
 
 :nnoremap ,m :map<CR>
 
@@ -97,15 +96,12 @@ endfunction
 " Delete all trailing white space
 
 " Generate tags
-:nnoremap ,tp :!ctags -R --languages=python -f $CONDA_ENV_PATH/tags $CONDA_ENV_PATH/lib/python*/site-packages/*<CR>
-:nnoremap ,tw <CR><C-v>e<C-]>
 :nnoremap ,tt :TagbarToggle<CR>
 
 " QuickFix
 :nnoremap ,cc :ccl<CR>
 :nnoremap ,co :cope<CR>
 
-:nnoremap ,f :Ag<SPACE>
 
 " End Shortcuts
 
@@ -113,6 +109,7 @@ endfunction
  if executable('ag')
    " Use Ag over Grep
    set grepprg=ag\ --nogroup\ --nocolor\ --follow
+   let g:ackprg = 'ag --vimgrep'
 
    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
    let g:ctrlp_user_command = 'ag -f -Q -l --nocolor --hidden -g "" %s'
@@ -120,14 +117,10 @@ endfunction
   " ag is fast enough that CtrlP doesn't need to cache
      let g:ctrlp_use_caching = 0
   "
-       if !exists(":Ag")
-           command -nargs=+ -complete=file -bar Ag silent! grep!  <args>|cwindow|redraw!
-               nnoremap \ :Ag<SPACE>
-       endif
   endif
 
 
-let g:ctrlp_match_window = 'results:100'
+let g:ctrlp_match_window = 'results:50'
 
 nnoremap ,g :grep! 
 
@@ -141,18 +134,18 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 
 let g:ctrlp_working_path_mode = '0'
-let g:ctrlp_map = '<C-\>'
 
 nnoremap ,cdc :cd %:p:h<CR>:pwd<CR>
 nnoremap ,cdh :cd $HOME<CR>:pwd<CR>
 nnoremap ,cds :cd $SOURCE_HOME<CR>:pwd<CR>
 nnoremap ,cdv :cd $VETTERY_HOME<CR>:pwd<CR>
+
 
 
 if $IS_VIZONE == '1'
@@ -181,9 +174,65 @@ let g:lt_quickfix_list_toggle_map = '<leader>lq'
 
 " Nerdtree
 nnoremap <Leader>nt :NERDTreeToggle<Enter>
+nnoremap <Leader>nc :NERDTreeClose<Enter>
 let NERDTreeShowHidden=1
 
 " map c-' to esc
 inoremap <C-SPACE> <ESC>
 
 let g:EditorConfig_core_mode = 'external_command'
+
+
+" SideSearch 
+let g:side_search_prg = 'ag --word-regexp'
+  \. " --hidden"
+  \. " --heading --stats -B 1 -A 4"
+let g:side_search_splitter = 'vnew'
+nnoremap <c-f> :SideSearch<Space>
+nnoremap <c-e> yw:SideSearch <c-r><c-w>
+inoremap <c-w> <esc>:w<cr>                 " save files
+nnoremap <c-w> :w<cr>
+inoremap <C-d> <esc>:wq!<cr>               " save and exit
+nnoremap <C-d> :wq!<cr>
+inoremap <C-q> <esc>:qa!<cr>               " quit discarding changes
+nnoremap <C-q> :qa!<cr>
+"Bookmarks
+let g:bookmark_no_default_key_mappings = 1
+nnoremap <Leader>wt <Plug>BookmarkToggle
+nnoremap <Leader>wi <Plug>BookmarkAnnotate
+nnoremap <Leader>wa <Plug>BookmarkShowAll
+nnoremap <Leader>wj <Plug>BookmarkNext
+nnoremap <Leader>wk <Plug>BookmarkPrev
+nnoremap <Leader>wc <Plug>BookmarkClear
+nnoremap <Leader>wx <Plug>BookmarkClearAll
+nnoremap <Leader>wkk <Plug>BookmarkMoveUp
+nnoremap <Leader>wjj <Plug>BookmarkMoveDown
+nnoremap <Leader>wg <Plug>BookmarkMoveToLine
+"" Avoid keybinding conflicts with NerdTree
+function! BookmarkMapKeys()
+    nmap mm :BookmarkToggle<CR>
+    nmap mi :BookmarkAnnotate<CR>
+    nmap mn :BookmarkNext<CR>
+    nmap mp :BookmarkPrev<CR>
+    nmap ma :BookmarkShowAll<CR>
+    nmap mc :BookmarkClear<CR>
+    nmap mx :BookmarkClearAll<CR>
+    nmap mkk :BookmarkMoveUp
+    nmap mjj :BookmarkMoveDown
+endfunction
+function! BookmarkUnmapKeys()
+    unmap mm
+    unmap mi
+    unmap mn
+    unmap mp
+    unmap ma
+    unmap mc
+    unmap mx
+    unmap mkk
+    unmap mjj
+endfunction
+autocmd BufEnter * :call BookmarkMapKeys()
+autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
+
+" Highlight Search
+nnoremap ,h :set hls!<CR>

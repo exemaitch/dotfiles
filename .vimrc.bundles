@@ -22,6 +22,9 @@ Plug 'Valloric/ListToggle'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'ddrscott/vim-side-search'
 call plug#end()
 
 filetype plugin indent on

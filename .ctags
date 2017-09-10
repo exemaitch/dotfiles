@@ -1,0 +1,10 @@
+--links=yes
+--exclude=node_modules
+--exclude=*.bundle.js
+--exclude=*.min.js
+--exclude=*Vendor/*
+--exclude=*vendor/*
+--exclude=*bower_components/*
+--exclude=*webroot/*
+--exclude=*lib/*
+--exclude=*.har

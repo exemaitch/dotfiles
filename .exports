@@ -1,4 +1,9 @@
 export SOURCE_HOME=$HOME/source
 export VETTERY_HOME=$HOME/vettery/vettery
 
+if [ -e $VETTERY_HOME ]; then
+	export $IS_VETTERY
+fi
+
+
 set -o vi

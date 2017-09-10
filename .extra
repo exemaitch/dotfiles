@@ -23,6 +23,7 @@ alias gcotb='git checkout --track -b'
 alias glog='git log'
 alias glogp='git log --pretty=format:"%h %s" --graph'
 
+alias boot="$HOME/source/dotfiles/bootstrap.sh"
 
 function reb(){
 	if [ -z "$1" ]; then
