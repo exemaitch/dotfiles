@@ -1,0 +1,142 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+u",
+        "command": "commandId",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "cursorDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "cursorLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "deleteLeft",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "cursorRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "cursorUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "workbench.action.debug.start",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "f5",
+        "command": "-workbench.action.debug.start",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "ctrl+d l",
+        "command": "deleteAllLeft",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+backspace",
+        "command": "-deleteAllLeft",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+d h",
+        "command": "deleteAllRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-deleteAllRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+d e",
+        "command": "workbench.action.terminal.deleteWordRight",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+d b",
+        "command": "workbench.action.terminal.deleteWordLeft",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "-workbench.action.terminal.deleteWordLeft",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+d d",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+d 0",
+        "command": "workbench.action.terminal.deleteToLineStart",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+backspace",
+        "command": "-workbench.action.terminal.deleteToLineStart",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+l",
+        "command": "editor.action.smartSelect.grow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+cmd+right",
+        "command": "-editor.action.smartSelect.grow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+h",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+cmd+left",
+        "command": "-editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+w z",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "cmd+k z",
+        "command": "-workbench.action.toggleZenMode"
+    },
+    {
+        "key": "ctrl+w ctrl+b",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+w b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+]
