@@ -6,7 +6,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+j",
         "command": "cursorDown",
         "when": "textInputFocus"
     },
@@ -26,7 +26,7 @@
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+j",
+        "key": "ctrl+k",
         "command": "cursorUp",
         "when": "textInputFocus"
     },
@@ -41,7 +41,7 @@
         "when": "!inDebugMode"
     },
     {
-        "key": "ctrl+d l",
+        "key": "ctrl+d h",
         "command": "deleteAllLeft",
         "when": "textInputFocus && !editorReadonly"
     },
@@ -51,7 +51,7 @@
         "when": "textInputFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+d h",
+        "key": "ctrl+d l",
         "command": "deleteAllRight",
         "when": "textInputFocus && !editorReadonly"
     },
@@ -96,7 +96,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+s ctrl+l",
+        "key": "ctrl+s l",
         "command": "editor.action.smartSelect.grow",
         "when": "editorTextFocus"
     },
@@ -106,7 +106,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+s ctrl+h",
+        "key": "ctrl+s h",
         "command": "editor.action.smartSelect.shrink",
         "when": "editorTextFocus"
     },
@@ -194,5 +194,111 @@
         "key": "cmd+]",
         "command": "-editor.action.indentLines",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+r f",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+f f",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "shift+cmd+f",
+        "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+f s",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+f r",
+        "command": "workbench.action.replaceInFiles"
+    },
+    {
+        "key": "shift+cmd+h",
+        "command": "-workbench.action.replaceInFiles"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+d l",
+        "command": "deleteRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-deleteRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.terminal.moveToLineEnd",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-workbench.action.terminal.moveToLineEnd",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w j",
+        "command": "workbench.action.joinAllGroups"
+    },
+    {
+        "key": "ctrl+w ctrl+h",
+        "command": "workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+w ctrl+l",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+w s",
+        "command": "workbench.action.switchWindow"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.switchWindow"
+    },
+    {
+        "key": "ctrl+w w",
+        "command": "workbench.action.quickSwitchWindow"
+    },
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+w h",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+w p",
+        "command": "workbench.action.openPreviousRecentlyUsedEditor"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.showAllEditors"
+    },
+    {
+        "key": "alt+cmd+tab",
+        "command": "-workbench.action.showAllEditors"
     },
 ]
